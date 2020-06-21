@@ -3,8 +3,7 @@ import org.junit.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class PDFTestInterface {
     Logger logger = LoggerFactory.getLogger(PDFTestInterface.class);
@@ -162,20 +161,22 @@ public class PDFTestInterface {
         data.put("COMPANY_WEBSITE", "http://pc.ehuatai.com/");
         data.put("COMPANY_TELEPHONENUMBER", "95510");
         data.put("BILL_DATE", "2016-12-09");
-        for(int i=0;i<20;i++){
+
+        List<String> cvrgs =Arrays.asList("不计免赔,车上货物责任险,发动机涉水损失险（机动车）,附加绝对免赔率特约险,车身划痕损失险（机动车）,附加车轮单独损坏除外特约险,第三者责任险法定节假日限额翻倍险,新增加设备损失险,第三者责任保险,指定修理厂险,车上人员责任保险（驾驶人）,车辆损失保险无法找到第三方特约险,车上人员责任保险（乘客）,精神损害抚慰金损失险,车辆损失保险,玻璃单独破碎险,自燃损失险,全面型车辆损失险,全车盗抢保险".split(","));
+        for(int i=0;i<cvrgs.size();i++){
             if(i<6){
-                data.put("MAIN_COVERAGE_CODE-"+i, i+"机动车损失保险机动车损失保险机动车损失保险");
+                data.put("MAIN_COVERAGE_CODE-"+i, cvrgs.get(i));
             }else{
-                data.put("MAIN_COVERAGE_CODE-"+i, i+"机动车损失保险");
+                data.put("MAIN_COVERAGE_CODE-"+i, cvrgs.get(i));
             }
             data.put("MAIN_ISNONDEDUCTIBLE-"+i, i+"否");
             data.put("MAIN_LIMIT_AMOUNT-"+i, i+"1234");
-            data.put("MAIN_TOTAL_ADJUST-"+i, i+"72.25%");
-            data.put("MAIN_BASED_PREMIUM-"+i, i+"870.72");
-            data.put("MAIN_ACTUAL_PREMIUM-"+i, i+"870.72");
-            data.put("MAIN_DEDUCTIBLE-"+i, i+"500");
-            data.put("MAIN_PREMIUM_BALANCE-"+i, i+"870.72");
-            data.put("MAIN_PREMIUM_NDPREMIUM-"+i, i+"870.72");
+            data.put("MAIN_TOTAL_ADJUST-"+i, i+".25%");
+            data.put("MAIN_BASED_PREMIUM-"+i, i+"8.72");
+            data.put("MAIN_ACTUAL_PREMIUM-"+i, i+"8.72");
+            data.put("MAIN_DEDUCTIBLE-"+i, i+"5");
+            data.put("MAIN_PREMIUM_BALANCE-"+i, i+"87.72");
+            data.put("MAIN_PREMIUM_NDPREMIUM-"+i, i+"80.72");
         }
         data.put("APPLICABLE_TERMS_CONDITIONS", "机动车综合商业保险示范条款");
         data.put("ACCIDENT_ABSOLUTELY_FRANCHISE", "500");
