@@ -16,8 +16,8 @@ public class BjElectronicTemp extends PDFTestInterface{
     @Test
     public void testMergePdfSy() {
         logger.info("测试");
-        String inPath = "E:\\Temp\\pdf\\in\\商业险电子保单模板.pdf";
-        String outPath = "E:\\Temp\\pdf\\out\\商业险电子保单模板" + (new Date().getTime()) + ".pdf";
+        String inPath = "E:\\Temp\\pdf\\in\\商业险电子保单样本-长江河北分公司.pdf";
+        String outPath = "E:\\Temp\\pdf\\out\\商业险电子保单样本-长江河北分公司" + (new Date().getTime()) + ".pdf";
         Map<String, String> data = defaultData;
         PDFUtils.mergePdf(inPath, data, outPath);
     }
